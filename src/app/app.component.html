@@ -1,0 +1,37 @@
+<button (click)="handleDelete()">Delete</button>
+<dx-data-grid
+  [dataSource]="dataSource"
+  [focusedRowEnabled]="true"
+  [focusedRowKey]="activeItem?.OrderID"
+  [selectedRowKeys]="selectedRowKeys"
+  [showBorders]="true"
+>
+  <dxo-sorting mode="none"></dxo-sorting>
+  <dxo-editing [allowDeleting]="false" [confirmDelete]="false">
+    <dxo-texts confirmDeleteMessage=""></dxo-texts>
+  </dxo-editing>
+  <dxo-state-storing [enabled]="false"></dxo-state-storing>
+  <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
+  <dxo-selection
+    [selectAllMode]="'page'"
+    [showCheckBoxesMode]="'always'"
+    [mode]="'multiple'"
+  ></dxo-selection>
+  <dxo-remote-operations
+    [paging]="true"
+    [sorting]="true"
+  ></dxo-remote-operations>
+  <dxo-pager [visible]="true"></dxo-pager>
+  <dxi-column dataField="OrderNumber" dataType="number"> </dxi-column>
+  <dxi-column dataField="OrderDate" dataType="date"> </dxi-column>
+  <dxi-column dataField="StoreCity" dataType="string"> </dxi-column>
+  <dxi-column dataField="StoreState" dataType="string"> </dxi-column>
+  <dxi-column dataField="Employee" dataType="string"> </dxi-column>
+  <dxi-column dataField="SaleAmount" dataType="number" format="currency">
+  </dxi-column>
+  <dxo-paging [pageSize]="120"></dxo-paging>
+  <dxo-pager
+    [showPageSizeSelector]="true"
+    [allowedPageSizes]="[80, 120, 200]"
+  ></dxo-pager>
+</dx-data-grid>
